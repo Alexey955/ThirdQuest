@@ -37,7 +37,7 @@ public class TestStoreQueue {
         List<String> highQueueTime = testStoreQueue.fetchHighQueueTime(filePathOne, filePathTwo, filePathThree, filePathFour, filePathFive);
 
         Assert.assertEquals(1, highQueueTime.size());
-        Assert.assertEquals("16 : 00", highQueueTime.get(0));
+        Assert.assertEquals("15 : 30  -  16 : 00", highQueueTime.get(0));
     }
 
     @Test
@@ -53,6 +53,6 @@ public class TestStoreQueue {
         List<String> highQueueTime = testStoreQueue.fetchHighQueueTime(filePathOne, filePathTwo, filePathThree, filePathFour, filePathFive);
 
         Assert.assertEquals(1, highQueueTime.size());
-        Assert.assertEquals("12 : 00", highQueueTime.get(0));
+        Assert.assertEquals("11 : 30  -  12 : 00", highQueueTime.get(0));
     }
 }

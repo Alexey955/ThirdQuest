@@ -30,15 +30,22 @@ public class StoreQueue {
             double newHours = (double) newMinutes / 60;
 
             if(newMinutes != 0) {
-                String strHours = "" + (8 + (int)newHours);
-                String sthMinutes;
+                int strHours = (8 + (int)newHours);
+                String strMinutes;
+
+                int hoursBefore;
+                String minutesBefore;
 
                 if(newHours != (int)newHours) {
-                    sthMinutes = "30";
+                    hoursBefore = strHours;
+                    minutesBefore = "00";
+                    strMinutes = "30";
                 }else {
-                    sthMinutes = "00";
+                    hoursBefore = strHours - 1;
+                    minutesBefore = "30";
+                    strMinutes = "00";
                 }
-                highQueueTimeList.add(strHours + " : " + sthMinutes);
+                highQueueTimeList.add(hoursBefore + " : " + minutesBefore + "  -  " + strHours + " : " + strMinutes);
             }else {
                 highQueueTimeList.add("8 : 00");
             }
