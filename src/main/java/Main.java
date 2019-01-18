@@ -7,17 +7,11 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
-        String filePathOne = "src/main/resources/FilesInputSet/FileInputOne.txt";
-        String filePathTwo = "src/main/resources/FilesInputSet/FileInputTwo.txt";
-        String filePathThree = "src/main/resources/FilesInputSet/FileInputThree.txt";
-        String filePathFour = "src/main/resources/FilesInputSet/FileInputFour.txt";
-        String filePathFive = "src/main/resources/FilesInputSet/FileInputFive.txt";
-
         StoreQueue storeQueue = new StoreQueue();
 
-        List<String> highQueueTime = storeQueue.fetchHighQueueTime(filePathOne, filePathTwo, filePathThree, filePathFour, filePathFive);
+        List<String> highQueueTime = storeQueue.fetchHighQueueTime(args[0], args[1], args[2], args[3], args[4]);
 
-        highQueueTime.stream().forEach(System.out::println);
+        highQueueTime.forEach(System.out::println);
     }
 
 }

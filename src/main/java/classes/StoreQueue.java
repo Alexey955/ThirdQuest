@@ -10,8 +10,7 @@ import java.util.stream.Collectors;
 
 public class StoreQueue {
 
-    public static List<String> fetchHighQueueTime(String ... filePath) throws IOException {
-
+    public List<String> fetchHighQueueTime(String ... filePath) throws IOException {
         List<List> generalAmountList = createGeneralAmountList(filePath);
 
         List<Integer> sumAmountList = createSumAmountList(generalAmountList);
@@ -21,7 +20,7 @@ public class StoreQueue {
         return createHighQueueTimeList(highPeopleTimeNumList);
     }
 
-    private static List<String> createHighQueueTimeList(List<Integer> highPeopleTimeNumList) {
+    private  List<String> createHighQueueTimeList(List<Integer> highPeopleTimeNumList) {
         List<String> highQueueTimeList = new LinkedList<>();
         int startHours = 8;
         int startMinutes = 0;
@@ -77,13 +76,13 @@ public class StoreQueue {
         return sumAmountList;
     }
 
-    private static List<Integer> fetchList(String filePath) throws IOException {
+    private List<Integer> fetchList(String filePath) throws IOException {
         return Files.lines(Paths.get(filePath/*args[0]*/))
                 .map(Integer::valueOf)
                 .collect(Collectors.toList());
     }
 
-    private static List<Integer> findAmountPeople(List<Integer> list) {
+    private List<Integer> findAmountPeople(List<Integer> list) {
         List<Integer> result = new LinkedList<>();
         result.add(list.get(0));
 
@@ -94,7 +93,7 @@ public class StoreQueue {
         return result;
     }
 
-    private static List<String> createFilePathList(String ... filePath) {
+    private List<String> createFilePathList(String ... filePath) {
         List<String> filePathList = new LinkedList<>();
 
         for(String path: filePath) {
@@ -103,7 +102,7 @@ public class StoreQueue {
         return filePathList;
     }
 
-    private static List<List> createGeneralAmountList(String ... filePath) throws IOException {
+    private List<List> createGeneralAmountList(String ... filePath) throws IOException {
         List<List> generalAmountList = new LinkedList<>();
 
         List<String> filePathList = createFilePathList(filePath);
